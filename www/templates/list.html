@@ -1,10 +1,16 @@
 <ion-view view-title="To Do List">
   <ion-content>
 
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
+
+
+      <li class="item item-checkbox" ng-repeat="task in tasks">
+          <label class="checkbox">
+              <input type="checkbox" ng-change="updateTask(task)" ng-model="task.isComplete">
+          </label>
+          {{task.title}}
+      </li>
+
+
+
   </ion-content>
 </ion-view>

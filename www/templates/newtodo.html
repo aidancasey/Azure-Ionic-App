@@ -3,15 +3,19 @@
 
       <div class="list">
           <label class="item item-input">
-              <input type="text" placeholder="Title">
+              <input type="text" placeholder="Title"  ng-model="task.title">
           </label>
           <label class="item item-input">
-              <textarea placeholder="Description"></textarea>
+              <textarea placeholder="Description"  ng-model="task.description"></textarea>
           </label>
+
+
+          <ion-toggle ng-model="task.highPriority" toggle-class="toggle-calm">High Priority</ion-toggle>
+
 
 
       </div>
-      <button class="button button-balanced" ng-click="saveTask()">
+      <button class="button button-balanced" ng-click="saveTask(task)">
           Save
       </button>
 
