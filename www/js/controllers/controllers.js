@@ -32,11 +32,8 @@ angular.module('app.controllers', [])
         alert(error);
       });
     }
-
     loadTasks();
-
 })
-
   .controller('NewToDoCtrl', function($scope,$state,azureAPI) {
 
     $scope.saveTask = function(task) {

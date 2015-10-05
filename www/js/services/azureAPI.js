@@ -1,11 +1,5 @@
-angular.module('app.services', [])
-  .factory('azureAPI', [ '$q', '$rootScope', function ( $q, $rootScope) {
-
-    var client = new WindowsAzure.MobileServiceClient(
-      "https://ionic-todo.azure-mobile.net/",
-      "wbkdvJfFonKDssaJOQTBBRyRZpLFbj84"
-    );
-
+angular.module('app.services', ['azure'])
+  .factory('azureAPI', ['client' ,'$q', '$rootScope', function (client, $q, $rootScope) {
 
     return {
       getAll: function () {
@@ -43,8 +37,6 @@ angular.module('app.services', [])
         });
         return deferred.promise;
       }
-
-
 
     };
   }]);
