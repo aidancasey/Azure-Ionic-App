@@ -25,6 +25,18 @@ angular.module('app', ['ionic', 'app.controllers','app.services','azure'])
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   $stateProvider
 
+
+
+    .state('app.login', {
+      url: '/login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl'
+        }
+      }
+    })
+
     .state('app', {
     url: '/app',
     abstract: true,
@@ -54,7 +66,7 @@ angular.module('app', ['ionic', 'app.controllers','app.services','azure'])
     })
 ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/list');
+  $urlRouterProvider.otherwise('/app/login');
 
 
     // don't cache any data

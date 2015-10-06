@@ -5,7 +5,10 @@ angular.module('app.services', ['azure'])
       getAll: function () {
         var deferred = $q.defer();
 
-        client.getTable('Task').read().then(function () {
+        var userId = client.currentUser.userId;
+
+        //filter by user id
+        client.getTable('Task').where({userId:userId}).read().then(function () {
           deferred.resolve.apply(this, arguments);
           $rootScope.$apply();
         }, function () {
@@ -17,6 +20,8 @@ angular.module('app.services', ['azure'])
       },
 
       addTask: function (task) {
+
+        task.userId = client.currentUser.userId;
         var deferred = $q.defer();
 
         client.getTable('Task').insert(task).then(function (data) {
@@ -29,6 +34,7 @@ angular.module('app.services', ['azure'])
 
       updateTask: function (task) {
         var deferred = $q.defer();
+        task.userId = client.currentUser.userId;
 
         client.getTable('Task').update(task).then(function (data) {
           deferred.resolve.apply(this, arguments);

@@ -1,4 +1,19 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['azure'])
+
+
+.controller('LoginCtrl', function(client,$scope, $state) {
+
+
+    $scope.login = function() {
+      client.login("google").then(function succes(data){
+        $state.go('app.list');
+      }, function(error){
+        alert(error);
+      });
+    }
+
+
+  })
 
 .controller('AppCtrl', function($scope, $state) {
 
