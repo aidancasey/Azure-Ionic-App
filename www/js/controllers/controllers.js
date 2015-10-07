@@ -6,13 +6,13 @@ angular.module('app.controllers', ['azure'])
 
     $scope.login = function() {
       client.login("google").then(function succes(data){
+        console.log('logged in succesfully..')
         $state.go('app.list');
       }, function(error){
-        alert(error);
+
+        //login failed.
       });
     }
-
-
   })
 
 .controller('AppCtrl', function($scope, $state) {

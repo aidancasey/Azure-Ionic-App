@@ -1,8 +1,8 @@
 angular.module('azure', [])
   .factory('client', [function () {
     var client = new WindowsAzure.MobileServiceClient(
-      "https://ionic-todo.azure-mobile.net/",
-      "wbkdvJfFonKDssaJOQTBBRyRZpLFbj84"
+      "your-mobile-service-url",
+      "your-application-key"
     );
     return client;
   }]);
